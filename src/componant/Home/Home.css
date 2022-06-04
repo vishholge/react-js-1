@@ -1,0 +1,21 @@
+header nav{
+    padding: 1rem 2rem 1rem 2rem    ;
+    width: 100%;
+    background-color: rgb(105, 210, 98);
+}
+#product_list{
+    height: 100vh;
+    width: 100%;
+
+    
+}
+.product{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    border: 2px solid rgb(202, 202, 202);
+}
+.product h2{
+    margin-left: 2rem;
+}
