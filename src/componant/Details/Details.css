@@ -1,0 +1,19 @@
+.product{
+    display: flex;
+    align-items: center;
+    
+    margin: 30px auto !important;
+    width: 80% !important;
+}
+.price{
+    color: green;
+
+}
+.btn{
+   
+    background-color: red;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    color: white;
+    font-weight: bold;
+}
