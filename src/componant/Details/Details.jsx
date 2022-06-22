@@ -17,7 +17,9 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 3.9,
                       "count": 120
-                    }
+                    },
+                    "inCart" : true,
+                    
                   },
                   {
                     "id": 2,
@@ -29,7 +31,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 4.1,
                       "count": 259
-                    }
+                    },
+                    "inCart" : true,
                   },
                   {
                     "id": 3,
@@ -41,7 +44,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 4.7,
                       "count": 500
-                    }
+                    },
+                    inCart : true,
                   },
                   {
                     "id": 4,
@@ -53,7 +57,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 2.1,
                       "count": 430
-                    }
+                    },
+                    inCart : true,
                   },
                   {
                     "id": 5,
@@ -66,6 +71,8 @@ export default class Details extends Component {
                       "rate": 4.6,
                       "count": 400
                     }
+                    ,
+                    inCart : true,
                   },
                   {
                     "id": 6,
@@ -77,7 +84,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 3.9,
                       "count": 70
-                    }
+                    },
+                    inCart : true,
                   },
                   {
                     "id": 7,
@@ -89,7 +97,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 3,
                       "count": 400
-                    }
+                    },
+                    inCart : true,
                   },
                   {
                     "id": 8,
@@ -101,7 +110,8 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 1.9,
                       "count": 100
-                    }
+                    },
+                    inCart : true,
                   },
                   {
                     "id": 9,
@@ -113,18 +123,30 @@ export default class Details extends Component {
                     "rating": {
                       "rate": 3.3,
                       "count": 203
-                    }
+                    },
+                    inCart : true,
                   }
             ]
         }
+    }
+    removeCartItem = (cardId) => {
+       let updatedCartItem = this.state.cardItems.map(product => {
+         if(cardId === product.id){
+           product.inCart = false;
+         }
+         return product;
+       })
+       this.setState( {
+           cardItems : updatedCartItem,
+       });
     }
   render() {
      const {cardItems} = this.state;
     return (
       <>
-          {cardItems.map(product => {
+          {cardItems.filter(product => product.inCart).map(product => {
             return(
-                <>
+                
                 <div className='product' key={product.id}>
                     <img src = {product.image} 
                     style = {{
@@ -139,11 +161,12 @@ export default class Details extends Component {
                     <div>
                         <p> {product.description}</p>
                         <button className='btn'>Buy NOw</button>
+                        <button className='btn' onClick={ () => this.removeCartItem(product.id)}>Delete</button>
                     </div>
                     
                 </div>
                 
-                </>
+                
             )
             
           })}

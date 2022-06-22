@@ -16,4 +16,15 @@
     border-radius: 0.7rem;
     color: white;
     font-weight: bold;
+    margin-left: 5px;
+}
+.todoitems{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 0px;
+    cursor: pointer;
+}
+.listitem{
+    border: none !important;
 }
